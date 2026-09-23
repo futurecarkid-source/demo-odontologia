@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clínica Dental Sonrisa Bogotá | Diseño de Sonrisa y Ortodoncia</title>
+  <meta name="description" content="Clínica odontológica en Bogotá especializada en diseño de sonrisa, ortodoncia invisible e implantes. Agenda tu valoración sin costo por WhatsApp." />
+  <meta name="theme-color" content="#1d4ed8" />
+
+  <!-- Tailwind CSS vía CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#eff6ff',
+              100: '#dbeafe',
+              200: '#bfdbfe',
+              300: '#93c5fd',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+          },
+          boxShadow: {
+            soft: '0 10px 30px -12px rgba(37, 99, 235, 0.25)',
+            card: '0 4px 24px -8px rgba(15, 23, 42, 0.12)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+
+    /* Animación de entrada suave */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
+      will-change: opacity, transform;
+    }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .animate-ping-slow { animation: none !important; }
+    }
+
+    /* Pulso del botón flotante de WhatsApp */
+    @keyframes ping-slow {
+      0%   { transform: scale(1);   opacity: .55; }
+      70%  { transform: scale(1.55); opacity: 0; }
+      100% { transform: scale(1.55); opacity: 0; }
+    }
+    .animate-ping-slow { animation: ping-slow 2.4s cubic-bezier(0,0,.2,1) infinite; }
+
+    /* Ocultar barra de scroll horizontal en carruseles si se necesitan */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+
+<body class="bg-white text-slate-700 antialiased selection:bg-brand-600 selection:text-white">
+
+  <!-- ================= HEADER / NAV ================= -->
+  <header class="fixed inset-x-0 top-0 z-40 border-b border-slate-100 bg-white/85 backdrop-blur-md">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+      <a href="#inicio" class="flex items-center gap-2">
+        <span class="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-700 text-white shadow-soft">
+          <!-- Icono diente -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5.5c-1.6-1.7-3.3-2.3-4.8-1.7C5.3 4.4 4.4 6.6 4.6 9.4c.2 2.6 1 4.6 1.5 7 .3 1.6.6 3.1 1.6 3.1 1.2 0 1.3-1.8 1.7-3.4.3-1.4.6-2.6 2.6-2.6s2.3 1.2 2.6 2.6c.4 1.6.5 3.4 1.7 3.4 1 0 1.3-1.5 1.6-3.1.5-2.4 1.3-4.4 1.5-7 .2-2.8-.7-5-2.6-5.6-1.5-.6-3.2 0-4.8 1.7Z"/>
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-sm font-extrabold tracking-tight text-slate-900">Clínica Dental Sonrisa</span>
+          <span class="block text-[11px] font-medium text-brand-600">Bogotá · Ortodoncia & Estética</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-7 text-sm font-semibold text-slate-600 md:flex">
+        <a href="#servicios" class="transition hover:text-brand-700">Servicios</a>
+        <a href="#testimonios" class="transition hover:text-brand-700">Testimonios</a>
+        <a href="#contacto" class="transition hover:text-brand-700">Contacto</a>
+      </nav>
+
+      <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20agendar%20una%20cita%20en%20Cl%C3%ADnica%20Dental%20Sonrisa"
+         target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 rounded-full bg-brand-700 px-4 py-2 text-xs font-bold text-white shadow-soft transition hover:bg-brand-800 active:scale-95 sm:text-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.7.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4.5c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.7.1.3 0 .7-.2 1l-2.2 2.2Z"/>
+        </svg>
+        Agendar
+      </a>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <main id="inicio" class="pt-16">
+
+    <section class="relative overflow-hidden bg-gradient-to-b from-brand-50 via-white to-white">
+      <!-- Decoración de fondo -->
+      <div aria-hidden="true" class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-brand-200/50 blur-3xl"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute -left-24 top-40 h-64 w-64 rounded-full bg-sky-100 blur-3xl"></div>
+
+      <div class="relative mx-auto max-w-6xl px-5 pb-14 pt-10 sm:px-6 sm:pt-16 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12 lg:pb-24">
+
+        <!-- Copy de conversión -->
+        <div class="reveal text-center lg:text-left">
+          <span class="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider text-brand-700 shadow-sm sm:text-xs">
+            <span class="relative flex h-2 w-2">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+            </span>
+            Cupos disponibles esta semana
+          </span>
+
+          <h1 class="mt-5 text-[2rem] font-black leading-[1.1] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.4rem]">
+            Diseño de Sonrisa y
+            <span class="bg-gradient-to-r from-brand-600 to-sky-500 bg-clip-text text-transparent">Ortodoncia en Bogotá</span>
+          </h1>
+
+          <p class="mx-auto mt-5 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg lg:mx-0">
+            Recupera la confianza al sonreír con tratamientos estéticos y de ortodoncia
+            personalizados. Tecnología digital, especialistas certificados y
+            <strong class="font-semibold text-slate-800">valoración inicial sin costo</strong>.
+          </p>
+
+          <!-- CTAs -->
+          <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+            <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20agendar%20mi%20valoraci%C3%B3n%20sin%20costo%20para%20dise%C3%B1o%20de%20sonrisa"
+               target="_blank" rel="noopener"
+               class="group inline-flex items-center justify-center gap-2.5 rounded-2xl bg-emerald-500 px-7 py-4 text-base font-bold text-white shadow-[0_12px_28px_-10px_rgba(16,185,129,.65)] transition hover:bg-emerald-600 active:scale-[.98]">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.35-.53.05-1.03.24-3.47-.72-2.94-1.16-4.78-4.2-4.92-4.4-.14-.2-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.29.56-.36.75-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 1.99.88 2.13.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.19-.29.39-.24.65-.15.27.1 1.68.79 1.97.94.29.15.48.22.55.34.07.12.07.71-.17 1.39Z"/>
+              </svg>
+              Agendar por WhatsApp
+            </a>
+            <a href="#servicios"
+               class="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-7 py-4 text-base font-bold text-slate-800 shadow-sm transition hover:border-brand-300 hover:text-brand-700 active:scale-[.98]">
+              Ver tratamientos
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </a>
+          </div>
+
+          <!-- Indicadores de confianza -->
+          <dl class="mt-9 grid grid-cols-3 gap-3 border-t border-slate-200/80 pt-6 text-center lg:text-left">
+            <div>
+              <dt class="sr-only">Años de experiencia</dt>
+              <dd class="text-2xl font-black text-brand-700 sm:text-3xl">+12</dd>
+              <dd class="mt-0.5 text-[11px] font-semibold uppercase tracking-wide text-slate-500 sm:text-xs">Años de experiencia</dd>
+            </div>
+            <div class="border-x border-slate-200/80 px-2">
+              <dt class="sr-only">Pacientes atendidos</dt>
+              <dd class="text-2xl font-black text-brand-700 sm:text-3xl">+4.500</dd>
+              <dd class="mt-0.5 text-[11px] font-semibold uppercase tracking-wide text-slate-500 sm:text-xs">Pacientes felices</dd>
+            </div>
+            <div>
+              <dt class="sr-only">Calificación</dt>
+              <dd class="flex items-center justify-center gap-1 text-2xl font-black text-brand-700 sm:text-3xl lg:justify-start">
+                4.9
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-amber-400 sm:h-5 sm:w-5" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              </dd>
+              <dd class="mt-0.5 text-[11px] font-semibold uppercase tracking-wide text-slate-500 sm:text-xs">Google Reviews</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Imagen / tarjeta visual -->
+        <div class="reveal relative mt-12 lg:mt-0">
+          <div class="relative mx-auto max-w-md overflow-hidden rounded-[2rem] shadow-[0_30px_60px_-25px_rgba(29,78,216,.45)] ring-1 ring-slate-900/5 lg:max-w-none">
+            <img
+              src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80"
+              alt="Paciente sonriendo en una clínica odontológica moderna en Bogotá"
+              loading="eager"
+              class="h-72 w-full object-cover sm:h-96 lg:h-[30rem]" />
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-900/55 via-transparent to-transparent"></div>
+
+            <!-- Tarjeta flotante -->
+            <div class="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/60 bg-white/95 p-3.5 shadow-card backdrop-blur">
+              <div class="flex items-center gap-3">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-brand-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </span>
+                <div class="min-w-0">
+                  <p class="text-sm font-bold text-slate-900">Valoración + escaneo 3D sin costo</p>
+                  <p class="text-xs text-slate-500">Conoce tu plan de tratamiento el mismo día</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BARRA DE BENEFICIOS ================= -->
+    <section class="border-y border-slate-100 bg-white">
+      <div class="mx-auto grid max-w-6xl grid-cols-1 gap-4 px-5 py-7 sm:grid-cols-3 sm:px-6">
+        <div class="reveal flex items-center gap-3">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+          </span>
+          <p class="text-sm font-semibold text-slate-700">Especialistas certificados</p>
+        </div>
+        <div class="reveal flex items-center gap-3">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </span>
+          <p class="text-sm font-semibold text-slate-700">Citas ágiles, sin filas</p>
+        </div>
+        <div class="reveal flex items-center gap-3">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </span>
+          <p class="text-sm font-semibold text-slate-700">Financiación hasta 12 meses</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICIOS ================= -->
+    <section id="servicios" class="mx-auto max-w-6xl scroll-mt-20 px-5 py-16 sm:px-6 sm:py-20">
+      <div class="reveal mx-auto max-w-2xl text-center">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-600">Nuestros tratamientos</span>
+        <h2 class="mt-3 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+          Tres especialidades, una sola sonrisa perfecta
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-slate-600">
+          Diagnóstico digital y planes personalizados para cada etapa de tu tratamiento.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        <!-- Servicio 1 -->
+        <article class="reveal group relative flex flex-col rounded-3xl border border-slate-100 bg-white p-7 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-brand-200 hover:shadow-soft">
+          <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-700 transition group-hover:bg-brand-700 group-hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5.5c-1.6-1.7-3.3-2.3-4.8-1.7C5.3 4.4 4.4 6.6 4.6 9.4c.2 2.6 1 4.6 1.5 7 .3 1.6.6 3.1 1.6 3.1 1.2 0 1.3-1.8 1.7-3.4.3-1.4.6-2.6 2.6-2.6s2.3 1.2 2.6 2.6c.4 1.6.5 3.4 1.7 3.4 1 0 1.3-1.5 1.6-3.1.5-2.4 1.3-4.4 1.5-7 .2-2.8-.7-5-2.6-5.6-1.5-.6-3.2 0-4.8 1.7Z"/>
+            </svg>
+          </span>
+          <h3 class="mt-5 text-xl font-extrabold text-slate-900">Diseño de Sonrisa</h3>
+          <p class="mt-2.5 flex-1 text-sm leading-relaxed text-slate-600">
+            Carillas de porcelana y resinas estéticas diseñadas digitalmente para armonizar
+            tu rostro. Resultados naturales, visibles desde la primera sesión.
+          </p>
+          <ul class="mt-5 space-y-2 text-sm text-slate-600">
+            <li class="flex items-start gap-2"><span class="mt-0.5 text-brand-600">✓</span> Simulación digital previa (DSD)</li>
+            <li class="flex items-start gap-2"><span class="mt-0.5 text-brand-600">✓</span> Mínimo desgaste dental</li>
+          </ul>
+          <p class="mt-6 text-xs font-bold uppercase tracking-wider text-brand-700">Desde $1.200.000 COP</p>
+        </article>
+
+        <!-- Servicio 2 -->
+        <article class="reveal group relative flex flex-col rounded-3xl border border-slate-100 bg-white p-7 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-brand-200 hover:shadow-soft">
+          <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-700 transition group-hover:bg-brand-700 group-hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="8" width="18" height="8" rx="2"/><path d="M7 8v8M12 8v8M17 8v8"/>
+            </svg>
+          </span>
+          <h3 class="mt-5 text-xl font-extrabold text-slate-900">Ortodoncia e Invisalign</h3>
+          <p class="mt-2.5 flex-1 text-sm leading-relaxed text-slate-600">
+            Alineadores transparentes y brackets de última generación para corregir tu
+            mordida con comodidad, estética y controles cada 4 a 6 semanas.
+          </p>
+          <ul class="mt-5 space-y-2 text-sm text-slate-600">
+            <li class="flex items-start gap-2"><span class="mt-0.5 text-brand-600">✓</span> Alineadores removibles</li>
+            <li class="flex items-start gap-2"><span class="mt-0.5 text-brand-600">✓</span> Escaneo intraoral 3D</li>
+          </ul>
+          <p class="mt-6 text-xs font-bold uppercase tracking-wider text-brand-700">Desde $2.500.000 COP</p>
+        </article>
+
+        <!-- Servicio 3 -->
+        <article class="reveal group relative flex flex-col rounded-3xl border border-slate-100 bg-white p-7 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-brand-200 hover:shadow-soft sm:col-span-2 lg:col-span-1">
+          <span class="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-700 transition group-hover:bg-brand-700 group-hover:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 3v6"/><path d="M9 6h6"/><path d="M5 21V11a7 7 0 0 1 14 0v10"/><path d="M3 21h18"/>
+            </svg>
+          </span>
+          <h3 class="mt-5 text-xl font-extrabold text-slate-900">Implantes y Rehabilitación</h3>
+          <p class="mt-2.5 flex-1 text-sm leading-relaxed text-slate-600">
+            Recupera piezas perdidas con implantes de titanio y coronas de zirconio.
+            Función masticatoria y estética con garantía de por vida en el implante.
+          </p>
+          <ul class="mt-5 space-y-2 text-sm text-slate-600">
+            <li class="flex items-start gap-2"><span class="mt-0.5 text-brand-600">✓</span> Cirugía guiada sin dolor</li>
+            <li class="flex items-start gap-2"><span class="mt-0.5 text-brand-600">✓</span> Materiales de grado médico</li>
+          </ul>
+          <p class="mt-6 text-xs font-bold uppercase tracking-wider text-brand-700">Desde $3.100.000 COP</p>
+        </article>
+      </div>
+
+      <div class="reveal mt-10 text-center">
+        <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20saber%20cu%C3%A1l%20tratamiento%20es%20ideal%20para%20m%C3%AD"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 rounded-2xl bg-brand-700 px-7 py-3.5 text-sm font-bold text-white shadow-soft transition hover:bg-brand-800 active:scale-[.98]">
+          Quiero saber cuál es ideal para mí
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIOS ================= -->
+    <section id="testimonios" class="scroll-mt-20 bg-gradient-to-b from-brand-50/70 to-white py-16 sm:py-20">
+      <div class="mx-auto max-w-6xl px-5 sm:px-6">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-600">Testimonios</span>
+          <h2 class="mt-3 text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+            Pacientes que ya sonríen sin miedo
+          </h2>
+          <div class="mt-4 flex items-center justify-center gap-2">
+            <div class="flex gap-0.5 text-amber-400">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+            </div>
+            <span class="text-sm font-bold text-slate-700">4.9 / 5 · 320+ reseñas</span>
+          </div>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+
+          <!-- Testimonio 1 -->
+          <figure class="reveal flex flex-col rounded-3xl border border-slate-100 bg-white p-7 shadow-card">
+            <div class="flex gap-0.5 text-amber-400" aria-label="Calificación 5 de 5 estrellas">
+              <svg class="h-4.5 w-4.5 h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+            </div>
+            <blockquote class="mt-4 flex-1 text-sm leading-relaxed text-slate-600">
+              “Llevaba años tapando mi sonrisa en las fotos. Con las carillas quedó
+              espectacular y muy natural, nadie nota que son de porcelana. El equipo
+              explica todo con paciencia.”
+            </blockquote>
+            <figcaption class="mt-6 flex items-center gap-3 border-t border-slate-100 pt-5">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-sm font-black text-brand-700">CR</span>
+              <div>
+                <p class="text-sm font-bold text-slate-900">Camila Rodríguez</p>
+                <p class="text-xs text-slate-500">Diseño de sonrisa · Chapinero</p>
+              </div>
+            </figcaption>
+          </figure>
+
+          <!-- Testimonio 2 -->
+          <figure class="reveal flex flex-col rounded-3xl border border-slate-100 bg-white p-7 shadow-card">
+            <div class="flex gap-0.5 text-amber-400" aria-label="Calificación 5 de 5 estrellas">
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+            </div>
+            <blockquote class="mt-4 flex-1 text-sm leading-relaxed text-slate-600">
+              “Usé alineadores invisibles por 14 meses. Nunca me dolió y podía quitármelos
+              para comer. Los controles siempre puntuales y el precio fue exactamente lo
+              que me cotizaron desde el inicio.”
+            </blockquote>
+            <figcaption class="mt-6 flex items-center gap-3 border-t border-slate-100 pt-5">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-sm font-black text-brand-700">AG</span>
+              <div>
+                <p class="text-sm font-bold text-slate-900">Andrés Gómez</p>
+                <p class="text-xs text-slate-500">Ortodoncia invisible · Usaquén</p>
+              </div>
+            </figcaption>
+          </figure>
+
+          <!-- Testimonio 3 -->
+          <figure class="reveal flex flex-col rounded-3xl border border-slate-100 bg-white p-7 shadow-card">
+            <div class="flex gap-0.5 text-amber-400" aria-label="Calificación 5 de 5 estrellas">
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+              <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.2 6.8.9-5 4.7 1.3 6.7L12 17.3 5.9 20.5l1.3-6.7-5-4.7 6.8-.9L12 2Z"/></svg>
+            </div>
+            <blockquote class="mt-4 flex-1 text-sm leading-relaxed text-slate-600">
+              “Me hicieron dos implantes y no sentí absolutamente nada. Al día siguiente ya
+              estaba trabajando normal. La clínica es impecable y el trato humano es lo
+              mejor.”
+            </blockquote>
+            <figcaption class="mt-6 flex items-center gap-3 border-t border-slate-100 pt-5">
+              <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-sm font-black text-brand-700">LM</span>
+              <div>
+                <p class="text-sm font-bold text-slate-900">Laura Martínez</p>
+                <p class="text-xs text-slate-500">Implantes dentales · Suba</p>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA FINAL + CONTACTO ================= -->
+    <section id="contacto" class="scroll-mt-20 px-5 pb-20 sm:px-6">
+      <div class="reveal mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-800 via-brand-700 to-brand-600 px-6 py-12 text-center shadow-[0_30px_70px_-30px_rgba(29,78,216,.7)] sm:px-12 sm:py-16">
+        <h2 class="mx-auto max-w-2xl text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl">
+          Tu nueva sonrisa empieza con un mensaje
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl text-base leading-relaxed text-brand-100">
+          Agenda tu valoración sin costo hoy mismo. Te respondemos en menos de 5 minutos
+          por WhatsApp en horario de atención.
+        </p>
+
+        <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20agendar%20mi%20valoraci%C3%B3n%20sin%20costo"
+             target="_blank" rel="noopener"
+             class="inline-flex w-full items-center justify-center gap-2.5 rounded-2xl bg-emerald-500 px-8 py-4 text-base font-bold text-white shadow-lg transition hover:bg-emerald-400 active:scale-[.98] sm:w-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.35-.53.05-1.03.24-3.47-.72-2.94-1.16-4.78-4.2-4.92-4.4-.14-.2-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.29.56-.36.75-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 1.99.88 2.13.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.19-.29.39-.24.65-.15.27.1 1.68.79 1.97.94.29.15.48.22.55.34.07.12.07.71-.17 1.39Z"/>
+            </svg>
+            Escribir por WhatsApp
+          </a>
+          <a href="tel:+573001234567"
+             class="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-white/30 bg-white/10 px-8 py-4 text-base font-bold text-white backdrop-blur transition hover:bg-white/20 active:scale-[.98] sm:w-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>
+            Llamar ahora
+          </a>
+        </div>
+
+        <!-- Datos de contacto -->
+        <div class="mt-10 grid gap-4 border-t border-white/20 pt-8 text-left sm:grid-cols-3">
+          <div class="flex items-start gap-3">
+            <span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white/15 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5 h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-brand-200">Dirección</p>
+              <p class="mt-1 text-sm font-semibold text-white">Cra. 15 #93-45, Chicó<br />Bogotá D.C., Colombia</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white/15 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-brand-200">Horario</p>
+              <p class="mt-1 text-sm font-semibold text-white">Lun – Vie: 8:00 a 19:00<br />Sáb: 9:00 a 15:00</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white/15 text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+            </span>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-brand-200">Contacto</p>
+              <p class="mt-1 text-sm font-semibold text-white">+57 300 123 4567<br />hola@dentalsonrisa.co</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-slate-100 bg-slate-50 pb-28 pt-10">
+    <div class="mx-auto max-w-6xl px-5 sm:px-6">
+      <div class="flex flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
+        <div class="flex items-center gap-2">
+          <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-700 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5.5c-1.6-1.7-3.3-2.3-4.8-1.7C5.3 4.4 4.4 6.6 4.6 9.4c.2 2.6 1 4.6 1.5 7 .3 1.6.6 3.1 1.6 3.1 1.2 0 1.3-1.8 1.7-3.4.3-1.4.6-2.6 2.6-2.6s2.3 1.2 2.6 2.6c.4 1.6.5 3.4 1.7 3.4 1 0 1.3-1.5 1.6-3.1.5-2.4 1.3-4.4 1.5-7 .2-2.8-.7-5-2.6-5.6-1.5-.6-3.2 0-4.8 1.7Z"/>
+            </svg>
+          </span>
+          <span class="text-sm font-extrabold text-slate-900">Clínica Dental Sonrisa</span>
+        </div>
+        <p class="text-xs text-slate-500">
+          © <span id="year">2026</span> Clínica Dental Sonrisa · Bogotá. Todos los derechos reservados.
+        </p>
+        <p class="text-xs text-slate-400">Registro Sanitario SIVIGILA · Profesionales certificados</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= BOTÓN FLOTANTE WHATSAPP ================= -->
+  <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20agendar%20una%20cita%20en%20Cl%C3%ADnica%20Dental%20Sonrisa"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Escribir por WhatsApp a Clínica Dental Sonrisa"
+     class="group fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-[0_10px_30px_-6px_rgba(16,185,129,.7)] transition duration-300 hover:bg-emerald-600 hover:shadow-[0_14px_36px_-6px_rgba(16,185,129,.85)] focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300 active:scale-95 sm:bottom-7 sm:right-7 sm:h-16 sm:w-16">
+
+    <!-- Anillo de pulso -->
+    <span aria-hidden="true" class="absolute inset-0 animate-ping-slow rounded-full bg-emerald-500"></span>
+
+    <!-- Icono WhatsApp -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="relative h-7 w-7 sm:h-8 sm:w-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.4 1.3-1.93 1.35-.53.05-1.03.24-3.47-.72-2.94-1.16-4.78-4.2-4.92-4.4-.14-.2-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.29.56-.36.75-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 1.99.88 2.13.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.19-.29.39-.24.65-.15.27.1 1.68.79 1.97.94.29.15.48.22.55.34.07.12.07.71-.17 1.39Z"/>
+    </svg>
+
+    <!-- Tooltip (solo escritorio) -->
+    <span class="pointer-events-none absolute right-full mr-3 hidden whitespace-nowrap rounded-xl bg-slate-900 px-3 py-2 text-xs font-semibold text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100 sm:block">
+      Agenda tu cita por WhatsApp
+    </span>
+  </a>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    // Año dinámico en el footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Animación de aparición al hacer scroll
+    (function () {
+      const items = document.querySelectorAll('.reveal');
+
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            // Pequeño escalonado para tarjetas contiguas
+            const delay = (entry.target.dataset.delay || (i * 70));
+            setTimeout(() => entry.target.classList.add('is-visible'), delay);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      items.forEach((el, idx) => {
+        el.dataset.delay = (idx % 3) * 90;
+        observer.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>
